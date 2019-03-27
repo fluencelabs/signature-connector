@@ -1,8 +1,5 @@
 import {getStringInvoker} from "./signature";
 
-
-let stringInvoker = getStringInvoker();
-
 export class Result {
     checkPassed: bool;
     payload: string | null;
@@ -21,6 +18,7 @@ export class Result {
 }
 
 export function checkSignature(request: string): Result {
+    let stringInvoker = getStringInvoker();
     let result = stringInvoker.invoke(request);
     return new Result(result);
 }
